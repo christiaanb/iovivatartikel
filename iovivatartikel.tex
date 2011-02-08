@@ -4,12 +4,27 @@
 \newcommand\textlambda{\ensuremath{\lambda}}
 \newcommand{\clash}{CλaSH}
 
+\usepackage{url}
+
+\usepackage[dutch]{babel}
+
 \begin{document}
 \pagestyle{empty}
 \section*{Functioneel Hardware ontwerpen in \clash}
-\subsubsection{Christiaan Baaij \& Matthijs Kooijman}
+\subsubsection*{Christiaan Baaij \& Matthijs Kooijman}
 
 De ontwikkeling van processtechnologie voor microchips ging de afgelopen decennia velen malen sneller dan de ontwikkelingen op het gebied van hardware ontwerp methodologi\"{e}n. 
 Als gevolg hiervan kunnen we nu meer transistoren op een chip zetten dan dat we nuttig kunnen gebruiken.
+Binnen de CAES vakgroep\footnote{\url{http://caes.ewi.utwente.nl/}} van de Universiteit Twente is er een hardwarebeschrijvingstaal ontwikkeld, \clash\footnote{\clash: CAES Language for Synchronous Hardware} genaamd, welke gebaseerd is op de functionele taal Haskell\footnote{\url{http://haskell.org}}.
+Omdat \clash\ een functionele hardwarebeschrijvingstaal is kunnen er een stuk makkelijker generieke ontwerpen gemaakt worden.
+Als gevolg hiervan worden grotere en complexere projecten behapbaar voor de hardwareontwerper --- zo kunnen al die transistoren eindelijk goed gebruikt worden.
 
+\subsubsection*{Hardware en Functionele Talen}
+Combinatorische schakeling, oftewel hardware, zijn evenvouding wiskundig (als functies) te beschrijven. 
+Net als een functie levert een schakeling altijd hetzelfde resultaat bij herhaalde input.
+Daarom zou een ontwerptaal voor hardware goed moeten zijn in de compositie, en decompositie, van (wiskundige) functies.
+Van functionele talen, zoals Haskell, is bekend dat deze talen inderdaad zeer goed zijn in de compositie en decompositie van functies; vandaar dat functionele talen en hardware dus zo goed bij elkaar passen.
+Een bijkomend voordeel van functionele talen is dat functies zogenaamde ``First-Class citizens'' zijn, wat betekent dat functies zelf zowel een argument als resultaat van een functie kunnen zijn.
+Deze functionaliteit maakt het binnen \clash\ mogelijk om heel generieke en parameteriseerbare hardware ontwerpen te maken.
+Generieke ontwerpen zijn daarom in \clash\ veel natuurlijker te beschrijven dan in de traditionele hardwarebeschrijvingstalen, welke hun achtergrond hebben in imperatieve talen zoals C.
 \end{document}
