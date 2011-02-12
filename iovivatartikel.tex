@@ -8,19 +8,32 @@
 
 \usepackage[dutch]{babel}
 
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\usepackage{courier}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{language=Haskell,captionpos=t,tabsize=2,frame=none,keywordstyle=\color{blue},commentstyle=\color{darkgreen},stringstyle=\color{red},numbers=left,numberstyle=\tiny,numbersep=5pt,breaklines=true,showstringspaces=false,basicstyle=\footnotesize\ttfamily}
+
 \begin{document}
 \pagestyle{empty}
 \section*{Functioneel Hardware ontwerpen in \clash}
 \subsubsection*{Christiaan Baaij \& Matthijs Kooijman}
 
-De ontwikkeling van processtechnologie voor microchips ging de afgelopen decennia velen malen sneller dan de ontwikkelingen op het gebied van hardware ontwerp methodologi\"{e}n. 
+De ontwikkeling van processtechnologie voor microchips ging de afgelopen decennia velen malen sneller dan de ontwikkelingen op het gebied van hardware ontwerp methodologi\"{e}n.
 Als gevolg hiervan kunnen we nu meer transistoren op een chip zetten dan dat we nuttig kunnen gebruiken.
 Binnen de CAES vakgroep\footnote{\url{http://caes.ewi.utwente.nl/}} van de Universiteit Twente is er een hardwarebeschrijvingstaal ontwikkeld, \clash\footnote{\clash: CAES Language for Synchronous Hardware} genaamd, welke gebaseerd is op de functionele taal Haskell\footnote{\url{http://haskell.org}}.
 Omdat \clash\ een functionele hardwarebeschrijvingstaal is kunnen er een stuk makkelijker generieke ontwerpen gemaakt worden.
 Als gevolg hiervan worden grotere en complexere projecten behapbaar voor de hardwareontwerper --- zo kunnen al die transistoren eindelijk goed gebruikt worden.
 
 \subsubsection*{Hardware en Functionele Talen}
-Combinatorische schakeling, oftewel hardware, zijn evenvouding wiskundig (als functies) te beschrijven. 
+Combinatorische schakeling, oftewel hardware, zijn evenvouding wiskundig (als functies) te beschrijven.
 Net als een functie levert een schakeling altijd hetzelfde resultaat bij herhaalde input.
 Daarom zou een ontwerptaal voor hardware goed moeten zijn in de compositie, en decompositie, van (wiskundige) functies.
 Van functionele talen, zoals Haskell, is bekend dat deze talen inderdaad zeer goed zijn in de compositie en decompositie van functies; vandaar dat functionele talen en hardware dus zo goed bij elkaar passen.
