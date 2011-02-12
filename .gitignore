@@ -2,3 +2,4 @@
 *.log
 iovivatartikel.pdf
 *.synctex.gz
+*.fdb_latexmk
