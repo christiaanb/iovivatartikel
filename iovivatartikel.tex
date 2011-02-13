@@ -53,6 +53,21 @@ Generieke ontwerpen zijn daarom in \clash\ veel natuurlijker te beschrijven dan 
 
 \subsubsection*{Simple CPU} % (fold)
 \label{ssub:simple_cpu}
+Om te laten zien dat je met \clash\ meer kan dan alleen een paar simpile circuits bouwen demonstreren we het ontwerp van een simpele processor.
+Dit voorbeeld zal gebruik maken van de verschillende abstractie-mechanismen die we tot onze beschikking hebben, zoals: hogere-orde functies, partial application, lambda-expressies, pattern matching, en type afleiding.
+De processor zal bestaan uit 4 executie-eenheden, $fu_{0}\ldots{}fu_{3}$, (zie Figuur~\ref{img:highordcpu}) die elk een binaire operatie zullen uitvoeren.
+
+\begin{figure}
+\caption{CPU met 4 executie-eenheden}
+\label{img:highordcpu}
+\end{figure}
+
+Elke executie-eenheid heeft 7 data inputs en twee adres inputs. De twee adressen geven aan welke van 7 data inputs als operanden van de functie gebruikt moeten worden.
+
+Deze 7 data inputs bestaat uit: een externe input \emph{x}, twee constanten (0 en 1), en de oude uitgangswaarden van de 4 executie-eenheden. De output van de processor als geheel is de oude waar de van de executie-eenheid $fu_{3}$.
+
+De executie-eenheden $fu_{1}$, $fu_{2}$, en $fu_{3}$ voeren een vooraf vastgestelde functie uit. Executie-eenheid $fu_{0}$ heeft daarintegen een extra \emph{opcode} ingang, zodat er uit verschillende functies gekozen kan worden.
+
 \begin{lstlisting}[label=Simple_CPU,caption=Simple CPU,float=t]
 type Word     = Signed D16
 type CpuState = State (Vector D4 Word)
