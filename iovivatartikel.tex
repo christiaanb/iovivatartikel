@@ -87,10 +87,10 @@ multiop Equal  = \a b -> if a == b then 1 else 0
 
 fu0 c = fu (multiop c)
 
-cpuA :: CpuState
+cpu :: CpuState
   -> (Word, Opcode, Vector D4 (Index D7, Index D7))
   -> (CpuState, Word)
-cpuA (State s) (x,opc,addrs) = (State s', out)
+cpu (State s) (x,opc,addrs) = (State s', out)
   where
     inputs  = [x,0,1] ++ s
     s'      = [ fu0 opc inputs (addrs!0)
